@@ -93,6 +93,11 @@ img.large{
   max-width: 29rem;
   width: 100%;
 }
+img.small{
+  max-width: 5rem;
+  width: 100%;
+}
+
 
 /* Card */
 .card { 
