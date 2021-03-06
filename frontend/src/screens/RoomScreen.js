@@ -47,6 +47,9 @@ export default function RoomScreen(props) {
                                   <h1>{room.name}</h1>
                                 </li>
                                 <li>
+                                  Type: {room.type}
+                                </li>
+                                <li>
                                   <Rating
                                     rating={room.rating}
                                     numReviews={room.numReviews}

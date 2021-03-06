@@ -3,21 +3,20 @@ import bcrypt from 'bcryptjs'
 const data = {
     users: [
         {
-            name: 'denis',
-            email: 'admin@example.com',
-            password: bcrypt.hashSync('1234', 8),
-            isAdmin: true,
+          name: 'Basir',
+          email: 'admin@example.com',
+          password: bcrypt.hashSync('1234', 8),
+          isAdmin: true,
         },
         {
-            name: 'james',
-            email: 'james@example.com',
-            password: bcrypt.hashSync('1234', 8),
-            isAdmin: false,
+          name: 'John',
+          email: 'user@example.com',
+          password: bcrypt.hashSync('1234', 8),
+          isAdmin: false,
         },
-    ],
+      ],
     rooms: [
         {
-            _id: "1",
             name: "single economy",
             image: "/images/img5.jpg",
             type: "single",
@@ -29,15 +28,10 @@ const data = {
             roomsAvailable: 0,
             numReviews: 10,
             breakfast: "not provided",
-            description: [
-            "Comfortable beds. ",
-            "Complimentary refreshments. ",
-            "Adequate safety/security. ",
-            "Internet",],
+            description: "Comfortable housing and Adequate safety/security."
 
         },
         {
-            _id: "2",
             name: "single basic",
             image: "/images/img4.jpg",
             type: "single",
@@ -49,14 +43,10 @@ const data = {
             capacity: 1,
             pets: "not allowed",
             breakfast: "not provided",
-            description: ["Comfortable beds. ",
-            "Complimentary refreshments. ",
-            "Adequate safety/security. ",
-            "Internet"],
+            description: "Comfortable housing and Adequate safety/security."
 
         },
         {
-            _id: "3",
             name: "single standard",
             image: "/images/img7.jpg",
             rating: 4.8,
@@ -68,14 +58,10 @@ const data = {
             capacity: 1,
             pets: "not allowed",
             breakfast: "not provided",
-            description: ["Comfortable beds. ",
-            "Complimentary refreshments. ",
-            "Adequate safety/security. ",
-            "Internet"],
+            description: "Comfortable housing and Adequate safety/security."
 
         },
         {//images/img1.jpg
-            _id: "4",
             name: "single deluxe",
             image: "/images/img6.jpg",
             type: "single",
@@ -87,10 +73,8 @@ const data = {
             capacity: 1,
             pets: "allowed",
             breakfast: "not provided",
-            description: ["Comfortable beds. ",
-            "Complimentary refreshments. ",
-            "Adequate safety/security. ",
-            "Internet"],
+            description: "Comfortable housing and Adequate safety/security."
+            
 
         },
         
