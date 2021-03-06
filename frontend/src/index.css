@@ -174,10 +174,10 @@ button.block{
 .success {
   color: #20a020;
 }
-
-.danger {
-  color: #a02020;
+.loading{
+  display: block !important;
 }
+
 .alert {
   padding: 1rem;
   border: 0.1rem solid transparent;

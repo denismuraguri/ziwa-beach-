@@ -3,7 +3,7 @@ import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
 import thunk from "redux-thunk"
 import { cartReducer } from './reducers/cartReducers';
 import { roomDetailsReducer, roomListReducer } from './reducers/roomReducers';
-import { userSigninReducer } from './reducers/userReducers';
+import { userRegisterReducer, userSigninReducer } from './reducers/userReducers';
 const initialState  = {
     userSignin:{
         userInfo: localStorage.getItem('userInfo')?
@@ -21,6 +21,7 @@ const reducer = combineReducers({
     roomDetails: roomDetailsReducer,
     cart: cartReducer,
     userSignin: userSigninReducer,
+    userRegister: userRegisterReducer,
 })
 /**const reducer = (state, action) => {
     return {rooms: data.rooms};

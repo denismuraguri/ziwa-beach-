@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { signin } from '../actions/userActions';
 import LoadingBox from '../component/LoadingBox';
 import MessageBox from '../component/MessageBox';
@@ -50,7 +50,7 @@ export default function SigninScreen(props) {
                 </div>
                 <div>
                     <label />
-                    <div>New customer? {" "} <Link to="/register"> Create your account</Link></div>
+                    <div>New customer? {" "} <Link to={`/register?redirect=${redirect}`}> Create your account</Link></div>
                 </div>
 
             </form>
