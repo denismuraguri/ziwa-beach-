@@ -4,19 +4,20 @@ import { savePaymentMethod } from '../actions/cartActions'
 import CheckoutSteps from '../component/CheckoutSteps'
 
 export default function PaymentMethodScreen(props) {
+    
     const cart = useSelector((state) => state.cart)
     const { bookingAddress } = cart;
     if(!bookingAddress.address) {
-        props.history.push("/booking")
+        props.history.push("/placebooking")
     }
 
+    
     const [paymentMethod, setPaymentMethod] = useState('PayPal')
     const dispatch = useDispatch()
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(savePaymentMethod(paymentMethod))
-        props.history.push('/placeBooking')
-
+        dispatch(savePaymentMethod (paymentMethod))
+        props.history.push('/placebooking')
     }
     return (
         <div>
