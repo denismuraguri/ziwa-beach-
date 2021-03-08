@@ -38,7 +38,9 @@ app.get('/api/rooms', (req, res) => {
     res.send(data.rooms);
 })
 **/
-
+app.get('/api/config/paypal', (req, res) => {
+  res.send(process.env.PAYPAL_CLIENT_ID || 'sb')
+})
 app.use('/api/users', userRouter);
 
 app.use('/api/rooms', roomRouter);
