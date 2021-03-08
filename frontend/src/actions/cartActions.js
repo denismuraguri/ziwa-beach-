@@ -1,4 +1,4 @@
-import { CART_ADD_ITEM, CART_REMOVE_ITEM, CART_SAVE_BOOKING_ADDRESS } from "../constants/cartConstants";
+import { CART_ADD_ITEM, CART_REMOVE_ITEM, CART_SAVE_BOOKING_ADDRESS, CART_SAVE_PAYMENT_METHOD } from "../constants/cartConstants";
 import Axios from 'axios'
 
 
@@ -24,4 +24,7 @@ export const removeFromCart = (roomId) => (dispatch, getState) => {
 export const saveBookingAddress = (data) => (dispatch) => {
     dispatch({type: CART_SAVE_BOOKING_ADDRESS, payload: data });
     localStorage.setItem('bookingAddress', JSON.stringify(data));
+}
+export const savePaymentMethod = (data) => (dispatch) => {
+    dispatch({type: CART_SAVE_PAYMENT_METHOD, payload: data });
 }

@@ -15,6 +15,7 @@ const initialState  = {
         : [],
         bookingAddress: localStorage.getItem('bookingAddress')? JSON.parse(localStorage.getItem('bookingAddress')) 
         : {},
+        paymentMethod: 'PayPal',
     },
 };
 
