@@ -11,6 +11,7 @@ import BookingAddressScreen from './screens/BookingAddressScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
 //import BookingOrderScreen from './screens/PlaceOrderScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import OrderScreen from './screens/OrderScreen';
 function App() {
 /**
  * const userSignin = useSelector((state) => state.userSignin);
@@ -69,7 +70,7 @@ function App() {
       <Route path="/booking" component={BookingAddressScreen}></Route>
       <Route path="/payment" component={PaymentMethodScreen}></Route>
       <Route path="/placebooking"component={PlaceOrderScreen}></Route>
-
+      <Route path="/order/:id" component={OrderScreen}></Route>
       <Route path="/" component={HomeScreen} exact></Route>
     </main>
     <footer className="row center">All right reserved</footer>
