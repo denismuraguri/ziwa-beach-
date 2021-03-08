@@ -1,22 +1,37 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
+import { createOrder } from '../actions/orderActions';
 import CheckoutSteps from '../component/CheckoutSteps'
+import { ORDER_CREATE_RESET } from '../constants/orderConstants';
+import LoadingBox from '../component/LoadingBox';
+import MessageBox from '../component/MessageBox';
 
-export default function BookingOrderScreen(props) {
+
+export default function PlaceOrderScreen(props) {
     const cart = useSelector((state) => state.cart);
     if (!cart.paymentMethod){
         props.history.push('/payment')
     }
+    const orderCreate = useSelector(state => state.orderCreate);
+    const { loading, success, error, order} = orderCreate
     const toPrice = (num) => Number(num.toFixed(2)); // 5.123 => "5.12" => 5.12
     cart.roomsPrice = toPrice(
         cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
       );
     cart.taxPrice = toPrice(0.15 * cart.roomsPrice);
     cart.totalPrice = cart.roomsPrice + cart.taxPrice;
+    const dispatch = useDispatch()
     const placeOrderHandler = () => {
+        dispatch(createOrder({...cart, orderItems: cart.cartItems}))
         //To do: dispatch place order action
     }
+    useEffect(() => {
+        if (success) {
+          props.history.push(`/order/${order._id}`);
+          dispatch({ type: ORDER_CREATE_RESET });
+        }
+      }, [dispatch, order, props.history, success]);
     return (
         <div>
             <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
@@ -90,7 +105,7 @@ export default function BookingOrderScreen(props) {
                         </li>
                         <li>
                             <div className="row">
-                            <div>Rooms</div>
+                            <div>Rooms Price</div>
                             <div>${cart.roomsPrice.toFixed(2)}</div>
                             </div>
                         </li>  
@@ -103,7 +118,7 @@ export default function BookingOrderScreen(props) {
                         <li>
                             <div className="row">
                                 <div>
-                                    <strong> Booking Total Price</strong>
+                                    <strong> Total Booking Price</strong>
                                 </div>
                                 <div>
                                     <strong>${cart.totalPrice.toFixed(2)}</strong>
@@ -111,18 +126,18 @@ export default function BookingOrderScreen(props) {
                             </div>
                         </li>
                         <li>
-                        <button
-                            type="button"
-                            onClick={placeOrderHandler}
-                            className="primary block"
-                            disabled={cart.cartItems.length === 0}
-                            >
-                            Place Booking
-                        </button>
-
+                            <button
+                                type="button"
+                                onClick={placeOrderHandler}
+                                className="primary block"
+                                disabled={cart.cartItems.length === 0}
+                                >
+                                Place Booking
+                            </button>
                         </li>
-                        
-
+                        {loading && <LoadingBox></LoadingBox>}
+                        {error && <MessageBox variant="danger">{error}</MessageBox>}
+                            
                         </ul> 
                     </div>
 

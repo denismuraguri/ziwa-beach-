@@ -9,7 +9,8 @@ import { signout } from './actions/userActions';
 import RegisterScreen from './screens/RegisterScreen';
 import BookingAddressScreen from './screens/BookingAddressScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
-import BookingOrderScreen from './screens/BookingOrderScreen';
+//import BookingOrderScreen from './screens/PlaceOrderScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
 function App() {
 /**
  * const userSignin = useSelector((state) => state.userSignin);
@@ -67,7 +68,7 @@ function App() {
       <Route path="/register" component={RegisterScreen}></Route>
       <Route path="/booking" component={BookingAddressScreen}></Route>
       <Route path="/payment" component={PaymentMethodScreen}></Route>
-      <Route path="/placebooking"component={BookingOrderScreen}></Route>
+      <Route path="/placebooking"component={PlaceOrderScreen}></Route>
 
       <Route path="/" component={HomeScreen} exact></Route>
     </main>

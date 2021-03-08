@@ -1,8 +1,8 @@
 import mongoose from 'mongoose'
 
-const BookSchema = new mongoose.Schema(
+const orderSchema = new mongoose.Schema(
     {
-      bookItems: [
+      orderItems: [
         {
           name: { type: String, required: true },
           qty: { type: Number, required: true },
@@ -38,9 +38,10 @@ const BookSchema = new mongoose.Schema(
     {
       timestamps: true,
     }
-  );
-  const Book = mongoose.model('Book', BookSchema);
-  export default Book;
+);
+
+const Order = mongoose.model('Order', orderSchema);
+export default Order;
   
 
 /**
