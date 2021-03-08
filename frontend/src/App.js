@@ -7,8 +7,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import SigninScreen from './screens/SigninScreen';
 import { signout } from './actions/userActions';
 import RegisterScreen from './screens/RegisterScreen';
+import BookingAddressScreen from './screens/BookingAddressScreen';
+//import BookingAddressScreen from './screens/BookingAddressScreen';
 function App() {
-
+/**
+ * const userSignin = useSelector((state) => state.userSignin);
+    const { userInfo } = userSignin;
+    if(!userInfo){
+        props.history.push('/signin')
+    }
+ */
   const cart = useSelector(state => state.cart);
   const { cartItems } = cart;
   const userSignin = useSelector((state) => state.userSignin);
@@ -56,7 +64,7 @@ function App() {
       <Route path="/room/:id" component={RoomScreen}></Route>
       <Route path="/signin" component={SigninScreen}></Route>
       <Route path="/register" component={RegisterScreen}></Route>
-
+      <Route path="/booking" component={BookingAddressScreen}></Route>
       <Route path="/" component={HomeScreen} exact></Route>
       
     </main>

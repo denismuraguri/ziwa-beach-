@@ -24,7 +24,7 @@ export const detailsRoom = (roomId) => async (dispatch) => {
     }catch(error){
         dispatch({
             type: ROOMS_DETAILS_FAIL, 
-            payload:
+            payload: 
                 error.response && error.response.data.message
                 ? error.response.data.message
                 : error.message,
