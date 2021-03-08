@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import userRouter from './routers/userRouter.js';
 import roomRouter from './routers/roomRouter.js';
 import dotenv from 'dotenv';
+import bookRouter from './routers/bookRouter.js';
 
 dotenv.config();
 
@@ -40,6 +41,7 @@ app.get('/api/rooms', (req, res) => {
 app.use('/api/users', userRouter);
 
 app.use('/api/rooms', roomRouter);
+app.use("/api/books", bookRouter)
 
 
 app.get('/', (req, res) => {
