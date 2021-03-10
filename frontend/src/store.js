@@ -4,7 +4,7 @@ import thunk from "redux-thunk"
 import { cartReducer } from './reducers/cartReducers';
 import { orderCreateReducer, orderDetailsReducer, orderMineListReducer, orderPayReducer } from './reducers/orderReducer';
 import { roomDetailsReducer, roomListReducer } from './reducers/roomReducers';
-import { userRegisterReducer, userSigninReducer } from './reducers/userReducers';
+import { userDetailsReducer, userRegisterReducer, userSigninReducer } from './reducers/userReducers';
 const initialState  = {
     userSignin:{
         userInfo: localStorage.getItem('userInfo')?
@@ -30,6 +30,7 @@ const reducer = combineReducers({
     orderDetails: orderDetailsReducer,
     orderPay: orderPayReducer,
     orderMineList: orderMineListReducer,
+    userDetails: userDetailsReducer,
 })
 /**const reducer = (state, action) => {
     return {rooms: data.rooms};
